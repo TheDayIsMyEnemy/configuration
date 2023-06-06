@@ -1,60 +1,78 @@
 {
-  "workbench.colorTheme": "Default Dark+",
-  "diffEditor.codeLens": true,
-  // Configure ruler markers to assist with detecting long lines
-  "editor.rulers": [],
-  // Automatically format your code as you type and save
-  "editor.formatOnType": false,
-  "editor.formatOnSave": false,
-  // Ensure that whitespace is cleaned up when saving
-  "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  // Enable Roslyn Analyzers which check your code for issues
-  "omnisharp.enableRoslynAnalyzers": true,
-  // Automatically sort imports upon save
-  "omnisharp.organizeImportsOnFormat": true,
-  "[csharp]": {
-    "editor.defaultFormatter": "csharpier.csharpier-vscode"
-  },
-  "prettier.enabledLanguageIds": [
-    "css",
-    "elm",
-    "flow",
-    "graphql",
-    "handlebars",
-    "html",
-    "java",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "jsonc",
-    "less",
-    "markdown",
-    "mdx",
-    "php",
-    "postcss",
-    "ruby",
-    "scss",
-    "solidity",
-    "svelte",
-    "svg",
-    "typescript",
-    "typescriptreact",
-    "twig",
-    "vue",
-    "xml",
-    "yaml"
-  ],
-  "workbench.sideBar.location": "right",
-  "editor.mouseWheelZoom": true,
-  "editor.minimap.enabled": false,
-  "files.associations": {
-    "*.razor": "aspnetcorerazor"
-  },
-  "explorer.confirmDelete": false,
-  "csharp.referencesCodeLens.enabled": false,
-  "omnisharp.enableDecompilationSupport": true,
-  "editor.formatOnPaste": true,
-  "window.zoomLevel": 1,
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.sideBar.location": "right",
+    "workbench.statusBar.visible": false,
+
+    "diffEditor.codeLens": true,
+
+    "editor.rulers": [],
+    "editor.formatOnType": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": true,
+    "editor.minimap.enabled": false,
+    "editor.mouseWheelZoom": true,
+
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": false,
+    "files.trimFinalNewlines": true,
+
+    "files.associations": {
+        "*.razor": "aspnetcorerazor",
+        "*.cshtml": "html"
+    },
+
+    "omnisharp.enableRoslynAnalyzers": true,
+    "omnisharp.organizeImportsOnFormat": true,
+    "omnisharp.enableImportCompletion": true,
+    "omnisharp.enableEditorConfigSupport": false,
+    "omnisharp.enableDecompilationSupport": true,
+
+    "explorer.confirmDelete": false,
+    "csharp.referencesCodeLens.enabled": false,
+    "window.zoomLevel": 4,
+
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+
+    "debug.confirmOnExit": "always",
+    "debug.onTaskErrors": "abort",
+
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp"
+    },
+    "[aspnetcorerazor]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp"
+    },
+    "emmet.includeLanguages": {
+        "razor": "html"
+    },
+    "prettier.enabledLanguageIds": [
+        "css",
+        "elm",
+        "flow",
+        "graphql",
+        "handlebars",
+        "html",
+        "java",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "jsonc",
+        "less",
+        "markdown",
+        "mdx",
+        "php",
+        "postcss",
+        "ruby",
+        "scss",
+        "solidity",
+        "svelte",
+        "svg",
+        "typescript",
+        "typescriptreact",
+        "twig",
+        "vue",
+        "xml",
+        "yaml"
+    ],
 }

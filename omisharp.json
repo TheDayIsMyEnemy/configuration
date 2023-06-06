@@ -1,6 +1,6 @@
 {
   "FormattingOptions": {
-    "EnableEditorConfigSupport": true,
+    "EnableEditorConfigSupport": false,
     "OrganizeImports": true,
 
     "NewLine": "\n",
