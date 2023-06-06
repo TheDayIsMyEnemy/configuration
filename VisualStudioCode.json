@@ -24,7 +24,7 @@
     "omnisharp.enableRoslynAnalyzers": true,
     "omnisharp.organizeImportsOnFormat": true,
     "omnisharp.enableImportCompletion": true,
-    "omnisharp.enableEditorConfigSupport": false,
+    "omnisharp.enableEditorConfigSupport": true,
     "omnisharp.enableDecompilationSupport": true,
 
     "explorer.confirmDelete": false,

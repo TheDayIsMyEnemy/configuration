@@ -1,6 +1,6 @@
 {
   "FormattingOptions": {
-    "EnableEditorConfigSupport": false,
+    "EnableEditorConfigSupport": true,
     "OrganizeImports": true,
 
     "NewLine": "\n",
@@ -60,9 +60,8 @@
     "NewLineForMembersInAnonymousTypes": true,
     "NewLineForClausesInQuery": true
   },
-    "RenameOptions": {
-      "RenameInComments": true,
-      "RenameOverloads": true,
-      "RenameInStrings": true
+  "RenameOptions": {
+    "RenameInComments": true,
+    "RenameOverloads": true,
+    "RenameInStrings": true
   }
-}
