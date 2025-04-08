@@ -1,0 +1,56 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "workbench.action.files.saveFiles"
+    },
+    {
+        "key": "shift+enter",
+        "command": "editor.action.insertLineAfter",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "-editor.action.insertLineAfter",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+z",
+        "command": "-editor.action.toggleWordWrap"
+    },
+    {
+        "key": "f12",
+        "command": "editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+f12",
+        "command": "-editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "f12",
+        "command": "-editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "f12",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider"
+    },
+    {
+        "key": "ctrl+f12",
+        "command": "-editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && isWeb && !isInEmbeddedEditor"
+    }
+]

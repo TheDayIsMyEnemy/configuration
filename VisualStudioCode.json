@@ -1,42 +1,41 @@
 {
     "workbench.colorTheme": "Default Dark+",
-    "workbench.sideBar.location": "right",
     "workbench.statusBar.visible": false,
-
-    "diffEditor.codeLens": true,
-
+    "workbench.sideBar.location": "right",
+    "window.zoomLevel": 3.7,
+    "editor.fontSize": 14,
     "editor.rulers": [],
     "editor.formatOnType": false,
     "editor.formatOnSave": false,
     "editor.formatOnPaste": true,
+    "editor.mouseWheelZoom": false,
+    "editor.codeActionsOnSave": {},
+    "editor.stickyScroll.enabled": false,
+    "editor.largeFileOptimizations": false,
     "editor.minimap.enabled": false,
-    "editor.mouseWheelZoom": true,
-
+    "editor.accessibilitySupport": "off",
+    "dotnet.codeLens.enableReferencesCodeLens": false,
+    "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+    "dotnet.server.useOmnisharp": false,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "debug.confirmOnExit": "always",
+    "debug.onTaskErrors": "abort",
+    "diffEditor.codeLens": true,
+    "explorer.confirmDelete": false,
+    "gitlens.views.branches.files.layout": "list",
+    "csharpextensions.useFileScopedNamespace": true,
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": false,
     "files.trimFinalNewlines": true,
-
     "files.associations": {
         "*.razor": "aspnetcorerazor",
-        "*.cshtml": "html"
+        "*.cshtml": "html",
+        "*.*proj": "xml",
+        "*.props": "xml",
+        "*.targets": "xml",
+        "*.tasks": "xml"
     },
-
-    "omnisharp.enableRoslynAnalyzers": true,
-    "omnisharp.organizeImportsOnFormat": true,
-    "omnisharp.enableImportCompletion": true,
-    "omnisharp.enableEditorConfigSupport": true,
-    "omnisharp.enableDecompilationSupport": true,
-
-    "explorer.confirmDelete": false,
-    "csharp.referencesCodeLens.enabled": false,
-    "window.zoomLevel": 4,
-
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
-
-    "debug.confirmOnExit": "always",
-    "debug.onTaskErrors": "abort",
-
     "[csharp]": {
         "editor.defaultFormatter": "ms-dotnettools.csharp"
     },
@@ -44,35 +43,11 @@
         "editor.defaultFormatter": "ms-dotnettools.csharp"
     },
     "emmet.includeLanguages": {
-        "razor": "html"
+        "javascript": "javascriptreact",
+        "vue-html": "html",
+        "razor": "html",
+        "aspnetcorerazor": "html",
     },
-    "prettier.enabledLanguageIds": [
-        "css",
-        "elm",
-        "flow",
-        "graphql",
-        "handlebars",
-        "html",
-        "java",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "jsonc",
-        "less",
-        "markdown",
-        "mdx",
-        "php",
-        "postcss",
-        "ruby",
-        "scss",
-        "solidity",
-        "svelte",
-        "svg",
-        "typescript",
-        "typescriptreact",
-        "twig",
-        "vue",
-        "xml",
-        "yaml"
-    ],
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
 }
