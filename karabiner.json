@@ -1,0 +1,2965 @@
+{
+    "profiles": [
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Open Chat - Microsoft Teams (Ctrl + Alt + C)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": { "mandatory": ["left_control", "left_option"] }
+                                },
+                                "to": [{ "shell_command": "open -a Microsoft\\ Teams" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Open Mail - Outlook (Ctrl + Alt + M)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "mandatory": ["left_control", "left_option"] }
+                                },
+                                "to": [{ "shell_command": "open -a Microsoft\\ Outlook" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Open Brave Browser (Ctrl + Alt + B)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": { "mandatory": ["left_control", "left_option"] }
+                                },
+                                "to": [{ "shell_command": "open -a Brave\\ Browser" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Mobile Portrait Mode (Ctrl + Shift + M) [Only Web Browsers]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.chrome$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.nightly$",
+                                            "^com\\.brave\\.Browser$",
+                                            "^com\\.apple\\.Safari$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "mandatory": ["shift", "control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "m",
+                                        "modifiers": ["command", "option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "D (Ctrl) [Only Web Browsers]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.chrome$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.nightly$",
+                                            "^com\\.brave\\.Browser$",
+                                            "^com\\.apple\\.Safari$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "d",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Language toggler ( Command + Spacebar )",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [{ "language": "en" }],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["left_command"] }
+                                },
+                                "to": [{ "select_input_source": { "language": "bg" } }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [{ "language": "bg" }],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["left_command"] }
+                                },
+                                "to": [{ "select_input_source": { "language": "en" } }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Capture Entire Screen ( Print Screen )",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "print_screen",
+                                    "modifiers": { "mandatory": ["right_control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "3",
+                                        "modifiers": ["left_command", "left_shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Ctrl + Right Arrow [Only Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["left_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": ["left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Ctrl + Left Arrow [Only Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["left_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": ["left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Open New Terminal ( Ctrl + Alt + 1 )",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "1",
+                                    "modifiers": { "mandatory": ["left_control", "left_option"] }
+                                },
+                                "to": [{ "shell_command": "open -a Terminal -n" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Open VS Code (Ctrl + Alt + V)",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": { "mandatory": ["left_control", "left_option"] }
+                                },
+                                "to": [{ "shell_command": "open -a Visual\\ Studio\\ Code" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Zoom In (Ctrl +) [Only Web Browsers]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.chrome$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.nightly$",
+                                            "^com\\.brave\\.Browser$",
+                                            "^com\\.apple\\.Safari$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "equal_sign",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "equal_sign",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Zoom Out (Ctrl -) [Only Web Browsers]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.chrome$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.nightly$",
+                                            "^com\\.brave\\.Browser$",
+                                            "^com\\.apple\\.Safari$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "hyphen",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "hyphen",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Insert (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "insert",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Insert (Shift)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "insert",
+                                    "modifiers": {
+                                        "mandatory": ["shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Home (Ctrl+Shift)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "home",
+                                    "modifiers": {
+                                        "mandatory": ["control", "shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Home (Shift)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "home",
+                                    "modifiers": {
+                                        "mandatory": ["shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Home (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "home",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Home",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "home",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "End (Ctrl+Shift)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "end",
+                                    "modifiers": {
+                                        "mandatory": ["control", "shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "End (Shift)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "end",
+                                    "modifiers": {
+                                        "mandatory": ["shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "End (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "end",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "End",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "end",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Left Arrow (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Left Arrow (Ctrl+Shift)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["control", "shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": ["option", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Right Arrow (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Right Arrow (Ctrl+Shift)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["control", "shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": ["option", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Backspace (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Delete (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "delete_forward",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_forward",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Enter (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "return_or_enter",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "return_or_enter",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Enter (Ctrl+Shift)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "return_or_enter",
+                                    "modifiers": {
+                                        "mandatory": ["control", "shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "return_or_enter",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "A (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "a",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "B (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "b",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "C (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": ["left_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "F (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "I (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "i",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "N (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "n",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "O (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "o",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "P (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "p",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "R (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "r",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "S (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "s",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "T (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "t",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "U (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "u",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "V (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "W (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "w",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "X (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "x",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "x",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Y (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "y",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Z (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "z",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "z",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Space (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "F1",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f1",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "slash",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "F3",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f3",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "g",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "1 (Cmd) [Open first pinned Dock app (Finder); +IDEs and Terminal Emulators]",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "1",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -b com.apple.finder" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "1 (Cmd) [Open Terminal; +IDEs and Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "1",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -a Terminal" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "2 (Cmd) [Open second pinned Dock app; +IDEs and Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "2",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -b $(/usr/libexec/PlistBuddy -c 'print :persistent-apps:0:tile-data:bundle-identifier' ~/Library/Preferences/com.apple.dock.plist)" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "3 (Cmd) [Open third pinned Dock app; +IDEs and Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "3",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -b $(/usr/libexec/PlistBuddy -c 'print :persistent-apps:1:tile-data:bundle-identifier' ~/Library/Preferences/com.apple.dock.plist)" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "4 (Cmd) [Open fourth pinned Dock app; +IDEs and Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "4",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -b $(/usr/libexec/PlistBuddy -c 'print :persistent-apps:2:tile-data:bundle-identifier' ~/Library/Preferences/com.apple.dock.plist)" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "5 (Cmd) [Open fifth pinned Dock app (Finder); +IDEs and Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "5",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -b com.apple.finder" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "6 (Cmd) [Open sixth pinned Dock app; +IDEs and Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "6",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -b $(/usr/libexec/PlistBuddy -c 'print :persistent-apps:4:tile-data:bundle-identifier' ~/Library/Preferences/com.apple.dock.plist)" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "7 (Cmd) [Open seventh pinned Dock app; +IDEs and Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "7",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -b $(/usr/libexec/PlistBuddy -c 'print :persistent-apps:5:tile-data:bundle-identifier' ~/Library/Preferences/com.apple.dock.plist)" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "8 (Cmd) [Open eighth pinned Dock app; +IDEs and Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "8",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -b $(/usr/libexec/PlistBuddy -c 'print :persistent-apps:6:tile-data:bundle-identifier' ~/Library/Preferences/com.apple.dock.plist)" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "9 (Cmd) [Open ninth pinned Dock app; +IDEs and Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "9",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -b $(/usr/libexec/PlistBuddy -c 'print :persistent-apps:7:tile-data:bundle-identifier' ~/Library/Preferences/com.apple.dock.plist)" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Win [Open Spotlight] [Always]",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "left_command" },
+                                "to": [{ "key_code": "left_command" }],
+                                "to_if_alone": [{ "apple_vendor_keyboard_key_code": "spotlight" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "L (Win) [Lock Screen] [Always]",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": ["control", "command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "L (Win) [Sleep] [Always]",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "power",
+                                        "modifiers": ["control", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "L (Alt+Ctrl) [Lock Screen] [Always]",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["control", "option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": ["control", "command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "L (Alt+Ctrl) [Sleep] [Always]",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["control", "option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "power",
+                                        "modifiers": ["control", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Insert (Ctrl) [+Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "insert",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Insert (Shift) [+Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "insert",
+                                    "modifiers": {
+                                        "mandatory": ["shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "/ (Ctrl) [+Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "slash",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "slash",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "F4 (Alt) [+Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f4",
+                                    "modifiers": {
+                                        "mandatory": ["option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "C (Ctrl+Shift) [Only Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": ["control", "shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "V (Ctrl+Shift) [Only Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.alacritty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "mandatory": ["control", "shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "H (Ctrl) [Only Web Browsers]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.chrome$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.nightly$",
+                                            "^com\\.brave\\.Browser$",
+                                            "^com\\.apple\\.Safari$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "y",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "L (Ctrl) [Only Web Browsers]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.chrome$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.nightly$",
+                                            "^com\\.brave\\.Browser$",
+                                            "^com\\.apple\\.Safari$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "l",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "F4 (Ctrl) [Only Chrome]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.Chrome$",
+                                            "^com\\.google\\.chrome$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f4",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "w",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "F5 [Only Chrome]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.Chrome$",
+                                            "^com\\.google\\.chrome$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f5",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "r",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Tab (Alt) [+IDEs, Remote Desktops, and Terminal Emulators]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": ["Chrome Remote Desktop\\.app"],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": ["option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "disable_built_in_keyboard_if_exists": true,
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 1302,
+                        "vendor_id": 13364
+                    },
+                    "ignore": false
+                },
+                {
+                    "identifiers": { "is_keyboard": true },
+                    "ignore": true
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": true,
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 1302,
+                        "vendor_id": 13364
+                    }
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 5924,
+                        "vendor_id": 4152
+                    },
+                    "ignore": true
+                }
+            ],
+            "name": "Default profile",
+            "selected": true,
+            "simple_modifications": [
+                {
+                    "from": { "key_code": "grave_accent_and_tilde" },
+                    "to": [{ "key_code": "non_us_backslash" }]
+                }
+            ],
+            "virtual_hid_keyboard": { "keyboard_type_v2": "iso" }
+        }
+    ]
+}
