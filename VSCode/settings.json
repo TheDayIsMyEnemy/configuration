@@ -1,75 +1,122 @@
 {
-    "workbench.colorTheme": "Default Dark+",
-    "workbench.statusBar.visible": false,
-    "workbench.sideBar.location": "right",
-    "workbench.layoutControl.enabled": false,
-    "workbench.remoteIndicator.showExtensionRecommendations": false,
-    "workbench.enableExperiments": false,
-    "workbench.enableExperimentsTelemetry": false,
-    "window.zoomLevel": 3.7,
-    "window.commandCenter": false,
-    "editor.fontSize": 14,
-    "editor.rulers": [],
-    "editor.formatOnType": false,
-    "editor.formatOnSave": false,
-    "editor.formatOnPaste": true,
-    "editor.mouseWheelZoom": false,
-    "editor.codeActionsOnSave": {},
-    "editor.stickyScroll.enabled": false,
-    "editor.largeFileOptimizations": false,
-    "editor.minimap.enabled": false,
-    "editor.accessibilitySupport": "off",
-    "editor.renderLineHighlight": "line",
-    // Jump to matching bracket with Ctrl+Shift+\
-    "editor.matchBrackets": "always",
-    "dotnet.codeLens.enableReferencesCodeLens": false,
-    "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
-    "dotnet.server.useOmnisharp": false,
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
-    "debug.confirmOnExit": "always",
-    "debug.onTaskErrors": "abort",
-    "diffEditor.codeLens": true,
-    "explorer.confirmDelete": false,
-    "gitlens.views.branches.files.layout": "list",
-    "gitlens.telemetry.enabled": false,
-    "csharpextensions.useFileScopedNamespace": true,
-    "dotnetAcquisitionExtension.enableTelemetry": false,
-    "telemetry.enableTelemetry": false,
-    "telemetry.telemetryLevel": "off",
-    "update.mode": "none",
-    "update.showReleaseNotes": false,
-    "extensions.autoUpdate": false,
-    "extensions.autoCheckUpdates": false,
-    "extensions.ignoreRecommendations": true,
-    "extensions.ignoreWorkspaceRecommendations": true,
-    "security.workspace.trust.enabled": false,
-    "security.workspace.trust.untrustedFiles": "open",
-    "security.workspace.trust.startupPrompt": false,
-    "sync.ignoredExtensions": [],
-    "sync.enable": false,
-    "sync.showPromptForConflicts": false,
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": false,
-    "files.trimFinalNewlines": true,
-    "files.associations": {
-        "*.razor": "aspnetcorerazor",
-        "*.cshtml": "html",
-        "*.*proj": "xml",
-        "*.props": "xml",
-        "*.targets": "xml",
-        "*.tasks": "xml"
-    },
-    "[csharp]": {
-        "editor.defaultFormatter": "ms-dotnettools.csharp"
-    },
-    "[aspnetcorerazor]": {
-        "editor.defaultFormatter": "ms-dotnettools.csharp"
-    },
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact",
-        "vue-html": "html",
-        "razor": "html",
-        "aspnetcorerazor": "html"
-    }
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.preferredDarkColorTheme": "Default Dark+",
+  "workbench.statusBar.visible": false,
+  "workbench.sideBar.location": "right",
+  "workbench.layoutControl.enabled": false,
+  "workbench.remoteIndicator.showExtensionRecommendations": false,
+  "workbench.enableExperiments": false,
+  "workbench.enableExperimentsTelemetry": false,
+  "workbench.startupEditor": "none",
+  "workbench.secondarySideBar.defaultVisibility": "visible",
+
+  "window.zoomLevel": 3.7,
+  "window.commandCenter": false,
+
+  "editor.fontSize": 14,
+  "editor.rulers": [],
+  "editor.formatOnType": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": true,
+  "editor.mouseWheelZoom": false,
+  "editor.codeActionsOnSave": {},
+  "editor.stickyScroll.enabled": false,
+  "editor.largeFileOptimizations": false,
+  "editor.minimap.enabled": false,
+  "editor.accessibilitySupport": "off",
+  "editor.renderLineHighlight": "line",
+  "editor.matchBrackets": "always", // Jump to matching bracket with Ctrl+Shift+\
+  "editor.bracketPairColorization.enabled": false,
+  "editor.defaultColorDecorators": "always",
+  "editor.semanticTokenColorCustomizations": {},
+
+  "terminal.integrated.fontSize": 14,
+
+  "chat.commandCenter.enabled": false,
+
+  "dotnet.codeLens.enableReferencesCodeLens": false,
+  "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+  "dotnet.server.useOmnisharp": false,
+
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+
+  "debug.confirmOnExit": "always",
+  "debug.onTaskErrors": "abort",
+
+  "diffEditor.codeLens": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  "explorer.confirmDelete": false,
+
+  "gitlens.views.branches.files.layout": "list",
+  "gitlens.telemetry.enabled": false,
+
+  "csharpextensions.useFileScopedNamespace": true,
+
+  "dotnetAcquisitionExtension.enableTelemetry": false,
+
+  "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
+
+  "update.mode": "none",
+  "update.showReleaseNotes": false,
+
+  "extensions.autoUpdate": true,
+  "extensions.autoCheckUpdates": false,
+  "extensions.ignoreRecommendations": true,
+  "extensions.ignoreWorkspaceRecommendations": true,
+
+  "security.workspace.trust.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.workspace.trust.startupPrompt": false,
+
+  "sync.ignoredExtensions": [],
+  "sync.enable": false,
+  "sync.showPromptForConflicts": false,
+
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.bracketSameLine": false,
+
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": false,
+  "files.trimFinalNewlines": true,
+  "files.associations": {
+    "*.razor": "aspnetcorerazor",
+    "*.cshtml": "aspnetcorerazor",
+    "*.*proj": "xml",
+    "*.props": "xml",
+    "*.targets": "xml",
+    "*.tasks": "xml"
+  },
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "[aspnetcorerazor]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "vue-html": "html",
+    "razor": "html",
+    "aspnetcorerazor": "html",
+    "cshtml": ""
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[shellscript]": {}
 }
